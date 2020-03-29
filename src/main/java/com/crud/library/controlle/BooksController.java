@@ -1,10 +1,8 @@
 package com.crud.library.controlle;
 
-import com.crud.library.domain.Books;
 import com.crud.library.domain.com.crud.library.domain.Dto.BooksDto;
 import com.crud.library.mapper.BookMapper;
 import com.crud.library.service.DbService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -18,11 +16,14 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("v1/books")
 public class BooksController {
 
-    @Autowired
-    private DbService dbService;
+    private final DbService dbService;
 
-    @Autowired
-    private BookMapper bookMapper;
+    private final BookMapper bookMapper;
+
+    public BooksController(DbService dbService, BookMapper bookMapper) {
+        this.dbService = dbService;
+        this.bookMapper = bookMapper;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "getBooks")
     public List<BooksDto> getBooks(){

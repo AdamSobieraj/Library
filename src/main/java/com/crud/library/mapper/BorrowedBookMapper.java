@@ -13,11 +13,14 @@ import java.util.stream.Collectors;
 @Component
 public class BorrowedBookMapper {
 
-    @Autowired
-    private BookCopyStatusDao bookCopyStatusDao;
+    private final BookCopyStatusDao bookCopyStatusDao;
 
-    @Autowired
-    private UserDao userDao;
+    private final UserDao userDao;
+
+    public BorrowedBookMapper(BookCopyStatusDao bookCopyStatusDao, UserDao userDao) {
+        this.bookCopyStatusDao = bookCopyStatusDao;
+        this.userDao = userDao;
+    }
 
     public BorrowedBook mapToBorrowedBook(final BorrowedBookDto borrowedBookDto) {
         return new BorrowedBook(

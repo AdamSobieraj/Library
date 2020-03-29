@@ -3,8 +3,6 @@ package com.crud.library.controlle;
 import com.crud.library.domain.com.crud.library.domain.Dto.UsersDto;
 import com.crud.library.mapper.UserMapper;
 import com.crud.library.service.DbService;
-import org.omg.CosNaming.NamingContextPackage.NotFound;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +13,14 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("v1/users")
 public class UserController {
 
-    @Autowired
-    private DbService dbService;
+    private final DbService dbService;
 
-    @Autowired
-    private UserMapper userMapper;
+    private final UserMapper userMapper;
+
+    public UserController(DbService dbService, UserMapper userMapper) {
+        this.dbService = dbService;
+        this.userMapper = userMapper;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "getUsers" )
     public List<UsersDto> getUsers(){

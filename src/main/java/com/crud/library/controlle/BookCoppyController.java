@@ -4,7 +4,6 @@ import com.crud.library.domain.RentalStatus;
 import com.crud.library.domain.com.crud.library.domain.Dto.BookCopyStatusDto;
 import com.crud.library.mapper.BookCopyStatusMapper;
 import com.crud.library.service.DbService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,11 +14,14 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("v1/bookcoppy")
 public class BookCoppyController {
 
-    @Autowired
-    private DbService dbservice;
+    private final DbService dbservice;
 
-    @Autowired
-    private BookCopyStatusMapper bookCopyStatusMapper;
+    private final BookCopyStatusMapper bookCopyStatusMapper;
+
+    public BookCoppyController(DbService dbservice, BookCopyStatusMapper bookCopyStatusMapper) {
+        this.dbservice = dbservice;
+        this.bookCopyStatusMapper = bookCopyStatusMapper;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "getBookCopies")
     public List<BookCopyStatusDto> getBookCopies() {

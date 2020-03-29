@@ -3,7 +3,6 @@ package com.crud.library.controlle;
 import com.crud.library.domain.com.crud.library.domain.Dto.BorrowedBookDto;
 import com.crud.library.mapper.BorrowedBookMapper;
 import com.crud.library.service.DbService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,11 +13,14 @@ import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 @RequestMapping("v1/borrowedbooks")
 public class BorrowedBookController {
 
-    @Autowired
-    private DbService dbService;
+    private final DbService dbService;
 
-    @Autowired
-    private BorrowedBookMapper borrowedBookMapper;
+    private final BorrowedBookMapper borrowedBookMapper;
+
+    public BorrowedBookController(DbService dbService, BorrowedBookMapper borrowedBookMapper) {
+        this.dbService = dbService;
+        this.borrowedBookMapper = borrowedBookMapper;
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "getBorrowedBooks")
     public List<BorrowedBookDto> getBorrowedBooks() {

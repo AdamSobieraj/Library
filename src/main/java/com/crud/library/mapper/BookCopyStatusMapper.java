@@ -12,8 +12,11 @@ import java.util.stream.Collectors;
 @Component
 public class BookCopyStatusMapper {
 
-    @Autowired
-    private BooksDao booksDao;
+    private final BooksDao booksDao;
+
+    public BookCopyStatusMapper(BooksDao booksDao) {
+        this.booksDao = booksDao;
+    }
 
     public BookCopyStatus mapToBookCopiesStatus(final BookCopyStatusDto bookCopyStatusDto) {
         return new BookCopyStatus(

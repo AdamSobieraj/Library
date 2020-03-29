@@ -11,10 +11,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Getter
-@Setter
-@NoArgsConstructor
-//@AllArgsConstructor
 @Entity
 @Table(name = "USERS")
 public class Users {
@@ -42,7 +38,7 @@ public class Users {
             fetch = FetchType.LAZY
     )
     private List<BorrowedBook> borrowedBooks = new ArrayList<>();
-///////////////////
+
     public Long getId() {
         return id;
     }
@@ -68,5 +64,8 @@ public class Users {
         this.name = name;
         this.surname = surname;
         this.accountStartDate = accountStartDate;
+    }
+
+    public Users() {
     }
 }
