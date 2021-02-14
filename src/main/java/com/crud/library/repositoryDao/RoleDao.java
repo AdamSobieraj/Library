@@ -1,6 +1,6 @@
 package com.crud.library.repositoryDao;
 
-import com.crud.library.domain.BorrowedBook;
+import com.crud.library.domain.EntityRole;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,14 +10,15 @@ import java.util.Optional;
 
 @Transactional
 @Repository
-public interface BorrowedBookDao extends CrudRepository<BorrowedBook, Long> {
+public interface RoleDao extends CrudRepository<EntityRole, Integer> {
 
     @Override
-    List<BorrowedBook> findAll();
+    List<EntityRole> findAll();
 
     @Override
-    BorrowedBook save(BorrowedBook borrowedBook);
+    EntityRole save(EntityRole entityRole);
 
-    Optional<BorrowedBook> findById(Long id);
+    Optional<EntityRole> findByIdrola(Integer id);
 
+    void deleteByIdrola(Integer id);
 }
