@@ -9,8 +9,8 @@ import java.util.List;
 import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON_VALUE;
 
 @RestController
-@RequestMapping("v1/bookcoppy")
-public class BookCoppyController {
+@RequestMapping("v1/bookcopy")
+public class BookCopyController {
 
 //    private final DbService dbservice;
 //

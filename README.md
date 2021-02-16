@@ -15,7 +15,9 @@
 Program is created to practice full flow of data.
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+Database schema 
+
+![Example screenshot](./ProgramData/ShematBazy.png)
 
 ## Technologies
 * SpringBoot
@@ -24,6 +26,8 @@ Program is created to practice full flow of data.
 * Apache Tomcat 9
 * JUnit 4
 * JodaTime 2.10.5
+* slf4j 1.7.30
+* log4j 1.2.17
 
 ## Setup
 None
@@ -40,6 +44,9 @@ List of features ready and TODOs for future development
 
 To-do list:
 * Web interface
+* end-to-end tests
+* Test groups @Tag
+* Read CSV/JSON file of books and users
 * LogIn and user verification
 
 ## Status
